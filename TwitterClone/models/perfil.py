@@ -13,13 +13,5 @@ class Perfil(models.Model):
     #   Nem todas as pessoas que você segue, te segue de volta
     segue = models.ManyToManyField('self', symmetrical=False)
 
-    @receiver(post_save, sender=User)
-    def create_user_profile(sender, instance, created, **kwargs):
-        if created:
-            Perfil.objects.create(user=instance)
-
-    @receiver(post_save, sender=User)
-    def save_user_profile(sender, instance, **kwargs):
-        instance.profile.save()
     def __str__(self):
         return self.usuario.username
