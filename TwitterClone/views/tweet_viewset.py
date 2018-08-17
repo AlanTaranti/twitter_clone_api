@@ -13,7 +13,6 @@ class TweetFilter(django_filters.FilterSet):
 
 
 class TweetViewSet(viewsets.ModelViewSet):
-    queryset = Tweet.objects.all()
     serializer_class = TweetSerializer
     filter_class = TweetFilter
     search_fields = ('texto',)
