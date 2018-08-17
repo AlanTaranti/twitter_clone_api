@@ -62,6 +62,10 @@ REST_FRAMEWORK = {
                                 'rest_framework.filters.SearchFilter',
                                 'rest_framework.filters.OrderingFilter',
                                 ),
+    # Permissão padrão da aplicação
+    'DEFAULT_PERMISSION_CLASSES': (
+            'TwitterClone.permissions.EhDonoOuLeituraApenas',
+        )
 }
 
 TEMPLATES = [
