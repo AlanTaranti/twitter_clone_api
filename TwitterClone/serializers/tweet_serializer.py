@@ -7,12 +7,12 @@ from django.contrib.auth.models import User
 class TweetSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
     usuario = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
-    comentarios = serializers.StringRelatedField(many=True)
+    comentarios = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
         model = Tweet
         fields = ('id', 'usuario', 'texto', 'comentarios', 'links')
-        read_only_fields = ('id', 'usuario')
+        read_only_fields = ('id', 'usuario', 'comentarios')
 
     @classmethod
     def setup_eager_loading(cls, queryset):
