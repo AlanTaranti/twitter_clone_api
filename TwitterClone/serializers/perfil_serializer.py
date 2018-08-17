@@ -2,6 +2,7 @@ from rest_framework import serializers
 from TwitterClone.models import *
 from django.contrib.auth.models import User
 from rest_framework.reverse import reverse
+from django.contrib.auth.hashers import make_password
 
 
 class NestedSlugRelatedField(serializers.SlugRelatedField):
@@ -42,8 +43,11 @@ class PerfilSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'tweets', 'segue', 'links')
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'password', 'tweets', 'segue', 'links')
         read_only_fields = ('id', 'tweets')
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
 
     def get_links(self, obj):
         request = self.context['request']
@@ -62,6 +66,8 @@ class PerfilSerializer(serializers.ModelSerializer):
         # User e Perfil
 
         perfil_data = self.validated_data.pop('perfil')
+
+        self.validated_data['password'] = make_password(self.validated_data['password'])
 
         user_instance = super().save(**kwargs)
 
