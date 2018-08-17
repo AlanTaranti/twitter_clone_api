@@ -36,13 +36,14 @@ class NestedSlugRelatedField(serializers.SlugRelatedField):
 
 class PerfilSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
+    tweets = serializers.SlugRelatedField(slug_field='texto', many=True, read_only=True)
     segue = NestedSlugRelatedField(many=True, slug_field='usuario__username', source='perfil.segue',
                                    queryset=Perfil.objects.all())
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'segue', 'links')
-        read_only_fields = ('id',)
+        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'tweets', 'segue', 'links')
+        read_only_fields = ('id', 'tweets')
 
     def get_links(self, obj):
         request = self.context['request']
