@@ -7,10 +7,11 @@ from django.contrib.auth.models import User
 class TweetSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
     usuario = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
+    comentarios = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Tweet
-        fields = ('id', 'usuario', 'texto', 'links')
+        fields = ('id', 'usuario', 'texto', 'comentarios', 'links')
         read_only_fields = ('id', 'usuario')
 
     @classmethod
