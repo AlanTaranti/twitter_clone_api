@@ -11,4 +11,4 @@ class Comentario(models.Model):
     texto = models.CharField(max_length=280)
 
     def __str__(self):
-        return self.texto
+        return '{} - {}: {}'.format(self.id, self.usuario.username, self.texto)
