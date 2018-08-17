@@ -22,3 +22,7 @@ class ComentarioViewSet(viewsets.ModelViewSet):
         # Configurar "carregamento ansioso" (o invés do lazy loading do Django) para evitar selects N+1
         queryset = self.get_serializer_class().setup_eager_loading(queryset)
         return queryset
+
+    def perform_create(self, serializer):
+        serializer.validated_data['usuario'] = self.request.user
+        super().perform_create(serializer)

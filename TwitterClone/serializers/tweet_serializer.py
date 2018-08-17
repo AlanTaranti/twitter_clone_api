@@ -1,12 +1,11 @@
 from rest_framework import serializers
 from TwitterClone.models import *
 from rest_framework.reverse import reverse
-from django.contrib.auth.models import User
 
 
 class TweetSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
-    usuario = serializers.SlugRelatedField(slug_field='username', queryset=User.objects.all())
+    usuario = serializers.SlugRelatedField(slug_field='username', read_only=True)
     comentarios = serializers.StringRelatedField(many=True, read_only=True)
 
     class Meta:
