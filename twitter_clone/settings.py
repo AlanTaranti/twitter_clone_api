@@ -64,8 +64,8 @@ REST_FRAMEWORK = {
                                 ),
     # Permissão padrão da aplicação
     'DEFAULT_PERMISSION_CLASSES': (
-            'TwitterClone.permissions.EhDonoOuLeituraApenas',
-        )
+        'TwitterClone.permissions.TwitterClonePermission',
+    )
 }
 
 TEMPLATES = [
