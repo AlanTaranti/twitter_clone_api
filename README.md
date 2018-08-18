@@ -45,6 +45,8 @@ A documentação fica na própria API, basta você acessar ela via browser.
 
 Cada endpoint possui sua própria documentação.
 
+![Tela Principal](./res/tela_twitter_clone_api.png)
+
 ## Como eu entro em contato?
 * Email: [alan.taranti@gmail.com](mailto:alan.taranti@gmail.com)
 * Website: <a href="http://alantaranti.github.io" target="_blank">alantaranti.github.io</a>
