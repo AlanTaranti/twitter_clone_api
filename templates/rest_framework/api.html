@@ -1,0 +1,22 @@
+{% extends "rest_framework/base.html" %}
+
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='https://alantaranti.github.io/' target="_blank">
+        Twitter Clone
+    </a>
+{% endblock %}
+
+{% block title %}
+    Twitter Clone
+{% endblock %}
+
+{% block bootstrap_navbar_variant %}
+    navbar navbar-expand-lg navbar-dark bg-primary
+{% endblock %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/override.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "rest_framework/css/bootstrap.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "rest_framework/css/bootstrap-tweaks.css" %}" type="text/css">
+{% endblock %}
