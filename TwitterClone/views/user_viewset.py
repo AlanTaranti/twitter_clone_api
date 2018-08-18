@@ -7,6 +7,40 @@ from rest_framework.response import Response
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    # Endpoint de Usuário
+
+    Nesse endpoint é possível manipular os usuários
+
+    Note que apenas é possível um usuário editar a si mesmo
+
+    **Métodos e ações possíveis:**
+
+    - **GET**
+        - /usuarios
+            - Lista todos os usuários
+            - Parâmetros:
+                - Filtragem:
+                    - username: filtra um usuário por nome
+                    - email: filtra um usuário por email
+                - Busca:
+                    - search: busca por nomes, sobrenomes, usernames e email de usuários
+        - /usuarios/<id\>
+            - Consulta um usuário específico
+    - **POST**
+        - /usuarios
+            - Cria um novo usuário
+        - /usuarios/<id\>/seguir
+            - Segue um usuário
+        - /usuarios/<id\>/desseguir
+            - Dessegue um usuário
+    -  **PUT/PATCH**
+        - /usuarios/<id\>
+            - Atualiza um usuário específico
+    -  **DELETE**
+        - /usuarios/<id\>
+            - Deleta um usuário específico
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_fields = ('username', 'email')

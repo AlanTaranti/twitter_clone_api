@@ -13,6 +13,35 @@ class ComentarioFilter(django_filters.FilterSet):
 
 
 class ComentarioViewSet(viewsets.ModelViewSet):
+    """
+    # Endpoint de Comentário
+
+    Nesse endpoint é possível manipular os comentários de um tweet
+
+    Note que apenas é possível um usuário editar seus próprios comentários
+
+    **Métodos e ações possíveis:**
+
+    - **GET**
+        - /comentarios
+            - Lista todos os comentários
+            - Parâmetros:
+                - Filtragem:
+                    - username: filtra os comentários de um usuário
+                - Busca:
+                    - search: busca comentários por texto
+        - /comentarios/<id\>
+            - Consulta um comentários específico
+    - **POST**
+        - /comentarios
+            - Cria um novo comentário
+    -  **PUT/PATCH**
+        - /comentarios/<id\>
+            - Atualiza um comentário específico
+    -  **DELETE**
+        - /comentarios/<id\>
+            - Deleta um comentário específico
+    """
     serializer_class = ComentarioSerializer
     filter_class = ComentarioFilter
     search_fields = ('texto',)

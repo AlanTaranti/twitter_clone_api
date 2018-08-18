@@ -13,6 +13,35 @@ class TweetFilter(django_filters.FilterSet):
 
 
 class TweetViewSet(viewsets.ModelViewSet):
+    """
+        # Endpoint de Tweets
+
+        Nesse endpoint é possível manipular os tweets
+
+        Note que apenas é possível um usuário editar seus próprios tweets
+
+        **Métodos e ações possíveis:**
+
+        - **GET**
+            - /tweets
+                - Lista todos os tweets
+                - Parâmetros:
+                    - Filtragem:
+                        - username: filtra os tweets de um usuário
+                    - Busca:
+                        - search: busca tweets por texto
+            - /tweets/<id\>
+                - Consulta um tweets específico
+        - **POST**
+            - /tweets
+                - Cria um novo tweet
+        -  **PUT/PATCH**
+            - /tweets/<id\>
+                - Atualiza um tweet específico
+        -  **DELETE**
+            - /tweets/<id\>
+                - Deleta um tweet específico
+        """
     serializer_class = TweetSerializer
     filter_class = TweetFilter
     search_fields = ('texto',)
