@@ -35,7 +35,7 @@ class NestedSlugRelatedField(serializers.SlugRelatedField):
         return resposta
 
 
-class PerfilSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
     tweets = serializers.SlugRelatedField(slug_field='texto', many=True, read_only=True)
     segue = NestedSlugRelatedField(many=True, slug_field='usuario__username', source='perfil.segue',

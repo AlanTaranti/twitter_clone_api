@@ -30,7 +30,7 @@ class TwitterClonePermission(permissions.BasePermission):
             return True
 
         # Usuários anônimos tem permissão de post nos usuários
-        elif str(view).split('.')[2] == 'perfil_viewset' and request.method == 'POST':
+        elif str(view).split('.')[2] == 'user_viewset' and request.method == 'POST':
             return True
 
         # Para o restante dos endpoints, é necessário autenticação para escrita
