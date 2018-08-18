@@ -7,7 +7,7 @@ class TwitterClonePermission(permissions.BasePermission):
     # Permissão a nível do objeto que permite apenas os donos editarem
     # Outros possuem apenas a permissão de leitura
     #
-    # Assume que o objeto possui um atributo usuario ou seja um usuario
+    # Assume que o objeto possui um atributo 'usuario' ou seja um User
 
     def has_object_permission(self, request, view, obj):
         # Permissões de leitura são permitidas a todas as solicitações
