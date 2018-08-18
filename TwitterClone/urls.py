@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register('usuarios', UserViewSet, base_name='usuarios')
 router.register('tweets', TweetViewSet, base_name='tweets')
 router.register('comentarios', ComentarioViewSet, base_name='comentarios')
+router.register('feed', FeedViewSet, base_name='feed')
 
 #
 # Url Patterns
