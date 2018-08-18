@@ -34,6 +34,7 @@ Sempre que quiser iniciar o projeto, basta executar o passo 5.
 ### Quais os recursos dessa API?
 
 Ela serve basicamente para você manipular usuários, tweets e comentários.
+
 A API fornece duas formas de consumo de dados:
 - Via browser: para melhor compreensão da ferramenta.
 - Programaticamente: para maior flexibilidade no uso da ferramenta.
@@ -41,6 +42,7 @@ A API fornece duas formas de consumo de dados:
 ### Cadê a documentação da API?
 
 A documentação fica na própria API, basta você acessar ela via browser.
+
 Cada endpoint possui sua própria documentação.
 
 ## Como eu entro em contato?
