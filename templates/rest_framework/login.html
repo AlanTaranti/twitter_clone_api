@@ -1,0 +1,16 @@
+{% extends "rest_framework/login_base.html" %}
+
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/override.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "rest_framework/css/bootstrap.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "rest_framework/css/bootstrap-tweaks.css" %}" type="text/css">
+{% endblock %}
+
+{% block branding %}
+    <h3 style="margin: 0 0 20px;">Twitter Clone API</h3>
+{% endblock %}
+
+{% block title %}
+    Data Service – Datasight
+{% endblock %}
