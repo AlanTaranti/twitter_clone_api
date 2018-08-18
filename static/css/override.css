@@ -1,0 +1,66 @@
+:root {
+    --primary-color: #55acee;
+    --secondary-color: #0084ff;
+    --danger-color: #e51c23;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+a.navbar-brand {
+    color: white !important;
+}
+
+.navbar .nav li, .navbar .nav li a, .navbar .brand:hover {
+    color: white !important;
+}
+
+ul.dropdown-menu {
+    color: white !important;
+    background-color: var(--primary-color) !important;
+}
+
+a.dropdown-toggle {
+    background-color: transparent !important;
+}
+
+li > a {
+    background-color: transparent !important;
+}
+
+body a {
+    color: var(--secondary-color) !important;
+}
+
+.btn-primary {
+    color: white !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.navbar {
+    background: #2C2C2C;
+    color: white;
+    border: none;
+    border-top: 5px solid black !important;
+    border-radius: 0;
+}
+
+.pagination > .active > a {
+    z-index: 3;
+    color: white !important;
+    cursor: default;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-danger {
+    color: white !important;
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+}
+
+a.js-tooltip.format-option {
+    color: white !important;
+}
