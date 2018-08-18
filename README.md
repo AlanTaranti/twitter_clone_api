@@ -47,4 +47,4 @@ Cada endpoint possui sua própria documentação.
 
 ## Como eu entro em contato?
 * Email: [alan.taranti@gmail.com](mailto:alan.taranti@gmail.com)
-* Website: [alantaranti.github.io](http://alantaranti.github.io)
+* Website: <a href="http://alantaranti.github.io" target="_blank">alantaranti.github.io</a>
