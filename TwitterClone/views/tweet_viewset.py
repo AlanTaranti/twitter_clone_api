@@ -41,7 +41,7 @@ class TweetViewSet(viewsets.ModelViewSet):
         -  **DELETE**
             - /tweets/<id\>
                 - Deleta um tweet específico
-        """
+    """
     serializer_class = TweetSerializer
     filter_class = TweetFilter
     search_fields = ('texto',)
