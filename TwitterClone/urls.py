@@ -1,9 +1,9 @@
 from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+from TwitterClone.twitter_clone_router import TwitterCloneRouter
 from TwitterClone.views import *
 
 
-router = DefaultRouter()
+router = TwitterCloneRouter()
 router.register('usuarios', UserViewSet, base_name='usuarios')
 router.register('tweets', TweetViewSet, base_name='tweets')
 router.register('comentarios', ComentarioViewSet, base_name='comentarios')
