@@ -5,11 +5,11 @@ from TwitterClone.models import Tweet
 
 
 class TweetFilter(django_filters.FilterSet):
-    usuario = django_filters.CharFilter(lookup_expr='username__exact')
+    username = django_filters.CharFilter(field_name='usuario', lookup_expr='username__exact')
 
     class Meta:
         model = Tweet
-        fields = ('usuario',)
+        fields = ('username',)
 
 
 class TweetViewSet(viewsets.ModelViewSet):

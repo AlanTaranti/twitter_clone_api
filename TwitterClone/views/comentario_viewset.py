@@ -5,11 +5,11 @@ from TwitterClone.models import Comentario
 
 
 class ComentarioFilter(django_filters.FilterSet):
-    usuario = django_filters.CharFilter(lookup_expr='username__exact')
+    username = django_filters.CharFilter(field_name='usuario', lookup_expr='username__exact')
 
     class Meta:
         model = Comentario
-        fields = ('usuario',)
+        fields = ('username',)
 
 
 class ComentarioViewSet(viewsets.ModelViewSet):
