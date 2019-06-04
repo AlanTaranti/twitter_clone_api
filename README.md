@@ -20,6 +20,7 @@
     `$ virtualenv -p /usr/bin/python3 venv`
 
 4. Ative o ambiente virtual:
+
     `$ source venv/bin/activate`
 
 5. Instale as dependências do projeto:
