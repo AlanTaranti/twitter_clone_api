@@ -16,6 +16,7 @@
     `$ git clone https://github.com/AlanTaranti/twitter_clone_api`
 
 3. Pelo terminal, entre no diretório clonado e crie o ambiente virtual:
+
     `$ virtualenv -p /usr/bin/python3 venv`
 
 4. Ative o ambiente virtual:
