@@ -1,4 +1,4 @@
-Django>=2.1,<2.2
-djangorestframework>=3.8,<3.9
-django-filter>=2.0,<2.1
-markdown>=2.6,<2.7
+Django>=2.2,<2.3
+djangorestframework>=3.9,<4.0
+django-filter
+markdown
