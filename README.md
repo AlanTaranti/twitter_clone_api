@@ -15,15 +15,21 @@
 
     `$ git clone https://github.com/AlanTaranti/twitter_clone_api`
 
-3. Pelo terminal, entre no diretório clonado e instale as dependências do projeto:
+3. Pelo terminal, entre no diretório clonado e crie o ambiente virtual:
+    `$ virtualenv -p /usr/bin/python3 venv`
+
+4. Ative o ambiente virtual:
+    `$ source venv/bin/activate`
+
+5. Instale as dependências do projeto:
 
 	`$ pip install -r requirements.txt`
 	
-4. Inicialize o banco de dados SQLite:
+6. Inicialize o banco de dados SQLite:
     
     `$ python manage.py migrate` 
 
-5. Execute o servidor:
+7. Execute o servidor:
     
     `$ python manage.py runserver` 
 
