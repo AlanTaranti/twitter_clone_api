@@ -8,7 +8,7 @@ class Perfil(models.Model):
 
     # A simetria falsa é necessário para simular a assimetria do Twitter:
     #   Nem todas as pessoas que você segue, te segue de volta
-    segue = models.ManyToManyField('self', symmetrical=False)
+    segue = models.ManyToManyField("self", symmetrical=False)
 
     def __str__(self):
         return self.usuario.username

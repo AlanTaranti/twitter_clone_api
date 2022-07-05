@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('TwitterClone', '0003_auto_20180814_1727'),
+        ("TwitterClone", "0003_auto_20180814_1727"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='perfil',
-            name='segue',
-            field=models.ManyToManyField(to='TwitterClone.Perfil'),
+            model_name="perfil",
+            name="segue",
+            field=models.ManyToManyField(to="TwitterClone.Perfil"),
         ),
     ]

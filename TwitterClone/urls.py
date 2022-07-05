@@ -4,15 +4,15 @@ from TwitterClone.views import *
 
 
 router = TwitterCloneRouter()
-router.register('usuarios', UserViewSet, basename='usuarios')
-router.register('tweets', TweetViewSet, basename='tweets')
-router.register('comentarios', ComentarioViewSet, basename='comentarios')
-router.register('feed', FeedViewSet, basename='feed')
+router.register("usuarios", UserViewSet, basename="usuarios")
+router.register("tweets", TweetViewSet, basename="tweets")
+router.register("comentarios", ComentarioViewSet, basename="comentarios")
+router.register("feed", FeedViewSet, basename="feed")
 
 #
 # Url Patterns
 #
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
 ]

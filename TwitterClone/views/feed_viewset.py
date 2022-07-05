@@ -26,12 +26,17 @@ class FeedViewSet(viewsets.ViewSet):
 
     def list(self, request):
         seguidores_e_user_ids = list(
-            Perfil.objects.prefetch_related('segue')
-                .get(usuario_id=request.user.id)
-                .segue.all()
-                .values_list('id', flat=True))
+            Perfil.objects.prefetch_related("segue")
+            .get(usuario_id=request.user.id)
+            .segue.all()
+            .values_list("id", flat=True)
+        )
         seguidores_e_user_ids.append(request.user.id)
 
-        queryset = Tweet.objects.filter(usuario_id__in=seguidores_e_user_ids).order_by('id').reverse()
-        serializer = TweetSerializer(queryset, many=True, context={'request': request})
+        queryset = (
+            Tweet.objects.filter(usuario_id__in=seguidores_e_user_ids)
+            .order_by("id")
+            .reverse()
+        )
+        serializer = TweetSerializer(queryset, many=True, context={"request": request})
         return Response(serializer.data)

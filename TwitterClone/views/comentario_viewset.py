@@ -5,11 +5,13 @@ from TwitterClone.models import Comentario
 
 
 class ComentarioFilter(django_filters.FilterSet):
-    username = django_filters.CharFilter(field_name='usuario', lookup_expr='username__exact')
+    username = django_filters.CharFilter(
+        field_name="usuario", lookup_expr="username__exact"
+    )
 
     class Meta:
         model = Comentario
-        fields = ('username',)
+        fields = ("username",)
 
 
 class ComentarioViewSet(viewsets.ModelViewSet):
@@ -42,9 +44,10 @@ class ComentarioViewSet(viewsets.ModelViewSet):
         - /comentarios/<id\>
             - Deleta um comentário específico
     """
+
     serializer_class = ComentarioSerializer
     filter_class = ComentarioFilter
-    search_fields = ('texto',)
+    search_fields = ("texto",)
 
     def get_queryset(self):
         queryset = Comentario.objects.all()
@@ -53,5 +56,5 @@ class ComentarioViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        serializer.validated_data['usuario'] = self.request.user
+        serializer.validated_data["usuario"] = self.request.user
         super().perform_create(serializer)

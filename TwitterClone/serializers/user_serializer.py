@@ -23,7 +23,7 @@ class NestedSlugRelatedField(serializers.SlugRelatedField):
     def to_representation(self, obj):
         from copy import copy
 
-        attr = self.slug_field.split('__')
+        attr = self.slug_field.split("__")
         objeto = copy(obj)
         resposta = None
 
@@ -37,25 +37,38 @@ class NestedSlugRelatedField(serializers.SlugRelatedField):
 
 class UserSerializer(serializers.ModelSerializer):
     links = serializers.SerializerMethodField()
-    tweets = serializers.SlugRelatedField(slug_field='texto', many=True, read_only=True)
-    segue = NestedSlugRelatedField(many=True, slug_field='usuario__username', source='perfil.segue',
-                                   queryset=Perfil.objects.all())
+    tweets = serializers.SlugRelatedField(slug_field="texto", many=True, read_only=True)
+    segue = NestedSlugRelatedField(
+        many=True,
+        slug_field="usuario__username",
+        source="perfil.segue",
+        queryset=Perfil.objects.all(),
+    )
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name', 'last_name', 'email', 'password', 'tweets', 'segue', 'links')
-        read_only_fields = ('id', 'tweets')
-        extra_kwargs = {
-            'password': {'write_only': True}
-        }
+        fields = (
+            "id",
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "password",
+            "tweets",
+            "segue",
+            "links",
+        )
+        read_only_fields = ("id", "tweets")
+        extra_kwargs = {"password": {"write_only": True}}
 
     def get_links(self, obj):
-        request = self.context['request']
+        request = self.context["request"]
         return {
-            'self': reverse('usuarios-detail',
-                            kwargs={'pk': obj.pk},
-                            request=request,
-                            ),
+            "self": reverse(
+                "usuarios-detail",
+                kwargs={"pk": obj.pk},
+                request=request,
+            ),
         }
 
     def save(self, **kwargs):
@@ -65,13 +78,13 @@ class UserSerializer(serializers.ModelSerializer):
         # Necessário para utilizar a relação OneToOne entre
         # User e Perfil
 
-        perfil_data = self.validated_data.pop('perfil')
+        perfil_data = self.validated_data.pop("perfil")
 
-        self.validated_data['password'] = make_password(self.validated_data['password'])
+        self.validated_data["password"] = make_password(self.validated_data["password"])
 
         user_instance = super().save(**kwargs)
 
-        segue_data = perfil_data.pop('segue')
+        segue_data = perfil_data.pop("segue")
         Perfil.objects.update_or_create(usuario=user_instance, defaults=perfil_data)
         perfil_instance = Perfil.objects.get(usuario=user_instance)
 

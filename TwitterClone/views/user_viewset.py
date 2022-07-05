@@ -41,12 +41,13 @@ class UserViewSet(viewsets.ModelViewSet):
         - /usuarios/<id\>
             - Deleta um usuário específico
     """
+
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    filter_fields = ('username', 'email')
-    search_fields = ('username', 'first_name', 'last_name', 'email')
+    filter_fields = ("username", "email")
+    search_fields = ("username", "first_name", "last_name", "email")
 
-    @action(methods=['post'], detail=True)
+    @action(methods=["post"], detail=True)
     def seguir(self, request, pk=None):
         perfil_a_seguir = User.objects.get(pk=pk).perfil
         Perfil.objects.get(usuario=request.user).segue.add(perfil_a_seguir)
@@ -56,7 +57,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
 
-    @action(methods=['post'], detail=True)
+    @action(methods=["post"], detail=True)
     def desseguir(self, request, pk=None):
         perfil_a_desseguir = User.objects.get(pk=pk).perfil
         Perfil.objects.get(usuario=request.user).segue.remove(perfil_a_desseguir)

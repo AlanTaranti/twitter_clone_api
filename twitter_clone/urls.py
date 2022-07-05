@@ -17,6 +17,6 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('TwitterClone.urls')),
-    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path("", include("TwitterClone.urls")),
+    path("auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
