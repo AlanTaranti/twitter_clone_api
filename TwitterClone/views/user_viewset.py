@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from TwitterClone.models import Perfil
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.status import HTTP_204_NO_CONTENT
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -55,7 +56,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = UserSerializer(data=perfil_a_seguir.usuario)
         serializer.is_valid()
 
-        return Response(serializer.data)
+        return Response(None, status=HTTP_204_NO_CONTENT)
 
     @action(methods=["post"], detail=True)
     def desseguir(self, request, pk=None):
@@ -65,4 +66,4 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = UserSerializer(data=perfil_a_desseguir.usuario)
         serializer.is_valid()
 
-        return Response(serializer.data)
+        return Response(None, status=HTTP_204_NO_CONTENT)
