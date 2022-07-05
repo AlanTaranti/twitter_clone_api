@@ -81,7 +81,8 @@ class UserSerializer(serializers.ModelSerializer):
 
         perfil_data = self.validated_data
 
-        perfil_data["password"] = make_password(perfil_data["password"])
+        if "password" in perfil_data:
+            perfil_data["password"] = make_password(perfil_data["password"])
 
         user_instance = super().save(**kwargs)
 
