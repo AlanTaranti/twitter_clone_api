@@ -4,3 +4,4 @@ django-filter
 markdown
 black
 gunicorn
+python-dotenv
