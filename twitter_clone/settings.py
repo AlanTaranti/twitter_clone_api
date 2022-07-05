@@ -24,7 +24,7 @@ SECRET_KEY = "g=(agcs!8*$11bk@y-_)1r3f%m(z6fxnlicuzxngscz=%%$o=%"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["twitter-clone-ain9a.herokuapp.com"]
 
 # Application definition
 
