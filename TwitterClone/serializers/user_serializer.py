@@ -43,6 +43,7 @@ class UserSerializer(serializers.ModelSerializer):
         slug_field="usuario__username",
         source="perfil.segue",
         queryset=Perfil.objects.all(),
+        required=False
     )
 
     class Meta:
@@ -78,14 +79,14 @@ class UserSerializer(serializers.ModelSerializer):
         # Necessário para utilizar a relação OneToOne entre
         # User e Perfil
 
-        perfil_data = self.validated_data.pop("perfil")
+        perfil_data = self.validated_data
 
-        self.validated_data["password"] = make_password(self.validated_data["password"])
+        perfil_data["password"] = make_password(perfil_data["password"])
 
         user_instance = super().save(**kwargs)
 
-        segue_data = perfil_data.pop("segue")
-        Perfil.objects.update_or_create(usuario=user_instance, defaults=perfil_data)
+        segue_data = perfil_data.pop("segue", [])
+        Perfil.objects.update_or_create(usuario=user_instance)
         perfil_instance = Perfil.objects.get(usuario=user_instance)
 
         for item in segue_data:
