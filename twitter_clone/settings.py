@@ -14,6 +14,8 @@ import os
 
 from dotenv import load_dotenv
 
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,7 +28,7 @@ SECRET_KEY = "g=(agcs!8*$11bk@y-_)1r3f%m(z6fxnlicuzxngscz=%%$o=%"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
 
-ALLOWED_HOSTS = ["twitter-clone-ain9a.herokuapp.com"]
+ALLOWED_HOSTS = ["twitter-clone-ain9a.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
