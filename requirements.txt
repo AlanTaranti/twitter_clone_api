@@ -5,3 +5,4 @@ markdown
 black
 gunicorn
 python-dotenv
+psycopg2-binary
