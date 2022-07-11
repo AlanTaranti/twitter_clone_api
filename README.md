@@ -8,7 +8,7 @@
 
 1. Primeiramente, tenha certeza que você tenhas os requisitos abaixos atendidos:
 - Git
-- Python 3.6+
+- Python 3.7+
 - Windows, Linux ou Mac
 
 2. Clone o projeto:
